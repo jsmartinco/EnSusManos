@@ -33,10 +33,12 @@ public class EventoRepositorio {
     }
     
      public RegistroEvento eventoCiudadanoID(int id){
-        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(Ciudadano.class);
-        Criteria crit = criteria.createCriteria("Ciudadano");
-        criteria.add(Restrictions.eq("cituaciones_id_situaciones", id));
-        return (RegistroEvento)crit.uniqueResult();
+        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(RegistroEvento.class)
+                .createAlias("ciudadano","c")
+                .createAlias("situaciones","s")
+                .add(Restrictions.eq("c.id_ciudadano", id))
+                .add(Restrictions.eq("s.id_Situaciones",id));
+             return (RegistroEvento) criteria.uniqueResult();
      }
     
 }
