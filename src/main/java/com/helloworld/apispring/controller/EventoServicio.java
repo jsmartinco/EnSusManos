@@ -23,7 +23,7 @@ public class EventoServicio {
       return eventoRepositorio.getAllCiudadanos();
               
     }
-    public RegistroEvento eventoCiudadanoID(int id){
+    public List<RegistroEvento> eventoCiudadanoID(int id){
         return eventoRepositorio.eventoCiudadanoID(id);
     }
     

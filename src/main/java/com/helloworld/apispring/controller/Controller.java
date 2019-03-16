@@ -44,9 +44,9 @@ public class Controller {
     }
     
     @RequestMapping(value="/ciudadanos/evento/{id}",method = RequestMethod.GET)
-    public ResponseEntity<RegistroEvento>EventoCiudadanoID(@PathVariable("id")int id){
-        RegistroEvento evento = eventoServicio.eventoCiudadanoID(id);
-        return new ResponseEntity<RegistroEvento>(evento,HttpStatus.OK);
+    public ResponseEntity<List<RegistroEvento>>EventoCiudadanoID(@PathVariable("id")int id){
+        List<RegistroEvento> evento = eventoServicio.eventoCiudadanoID(id);
+        return new ResponseEntity<List<RegistroEvento>>(evento,HttpStatus.OK);
         
     }
     
