@@ -31,7 +31,7 @@ public class RegistroEvento {
     private String barrio;
     
     @ManyToOne
-    @JoinColumn(name="ciudadano_id_ciudano")
+    @JoinColumn(name="ciudadano_id_ciudadano")
     private Ciudadano ciudadano;
     
     @ManyToOne
