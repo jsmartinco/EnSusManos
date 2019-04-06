@@ -49,6 +49,11 @@ public class Controller {
         return new ResponseEntity<List<RegistroEvento>>(evento,HttpStatus.OK);
         
     }
+    @RequestMapping(value="/ciudadanos/login",method = RequestMethod.GET)
+    public ResponseEntity<Ciudadano> login(){
+        Ciudadano inicio = ciudadanoServicio.login();
+        return new ResponseEntity<Ciudadano>(inicio,HttpStatus.OK);
+    }
     
     
 }

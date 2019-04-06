@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -35,6 +34,15 @@ public class CiudadanoRepositorio {
     public List<Ciudadano> ordenarCiudadano() {
         Criteria criteria = getSessionfactory().getCurrentSession().createCriteria(Ciudadano.class);
         return (List<Ciudadano>) criteria.addOrder(Order.desc("id_ciudadano")).list();
+    }
+    
+    public Ciudadano login(Ciudadano ciudadano){
+        Criteria criteria = getSessionfactory().getCurrentSession().createCriteria(Ciudadano.class);
+        criteria.add(Restrictions.eq("Usuario", ciudadano.getUsuario()));
+        criteria.add(Restrictions.eq("Contraseña", ciudadano.getContraseña()));
+        
+        Ciudadano ciud = (Ciudadano) criteria.uniqueResult();
+        return ciud;
     }
     
    

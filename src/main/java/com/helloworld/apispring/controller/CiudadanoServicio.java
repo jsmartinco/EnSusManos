@@ -12,6 +12,7 @@ public class CiudadanoServicio {
     
     @Autowired
     private CiudadanoRepositorio ciudadanoRepositorio;
+    private Ciudadano ciudadano;
 
     public CiudadanoServicio() {
     }
@@ -21,6 +22,10 @@ public class CiudadanoServicio {
     }
     public List<Ciudadano>ordenarCiudadano(){
         return ciudadanoRepositorio.ordenarCiudadano();
+    }
+    
+    public Ciudadano login(){
+        return ciudadanoRepositorio.login(ciudadano);
     }
     
 }
