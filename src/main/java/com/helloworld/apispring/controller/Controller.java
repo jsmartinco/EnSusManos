@@ -49,9 +49,9 @@ public class Controller {
         return new ResponseEntity<List<RegistroEvento>>(evento,HttpStatus.OK);
         
     }
-    @RequestMapping(value="/ciudadanos/login",method = RequestMethod.GET)
-    public ResponseEntity<Ciudadano> login(){
-        Ciudadano inicio = ciudadanoServicio.login();
+    @RequestMapping(value="/ciudadanos/login",method = RequestMethod.POST)
+    public ResponseEntity<Ciudadano> login(@RequestBody Ciudadano ciudadano){
+        Ciudadano inicio = ciudadanoServicio.login(ciudadano);
         return new ResponseEntity<Ciudadano>(inicio,HttpStatus.OK);
     }
     
