@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.http.MediaType;
 
 @RestController
 @RequestMapping("/v1")
@@ -49,7 +50,7 @@ public class Controller {
         return new ResponseEntity<List<RegistroEvento>>(evento,HttpStatus.OK);
         
     }
-    @RequestMapping(value="/ciudadanos/login",method = RequestMethod.POST)
+    @RequestMapping(value="/ciudadanos/login",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Ciudadano> login(@RequestBody Ciudadano ciudadano){
         Ciudadano inicio = ciudadanoServicio.login(ciudadano);
         return new ResponseEntity<Ciudadano>(inicio,HttpStatus.OK);

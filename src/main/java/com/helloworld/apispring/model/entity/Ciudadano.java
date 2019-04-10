@@ -30,7 +30,7 @@ public class Ciudadano {
     private String Usuario;
 
     @Column
-    private String Contrasena;
+    private String pass;
     
     
     @Column
@@ -66,12 +66,12 @@ public class Ciudadano {
         this.Usuario = Usuario;
     }
 
-    public String getContrasena() {
-        return Contrasena;
+    public String getpass() {
+        return pass;
     }
 
-    public void setContrasena(String Contrasena) {
-        this.Contrasena = Contrasena;
+    public void setpass(String pass) {
+        this.pass = pass;
     }
 
     public int getPuntaje() {
