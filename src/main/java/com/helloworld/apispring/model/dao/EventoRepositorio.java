@@ -33,12 +33,11 @@ public class EventoRepositorio {
     }
     
      public List<RegistroEvento> eventoCiudadanoID(int id){
-        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(RegistroEvento.class)
-                .createAlias("ciudadano","c")
-                .createAlias("situacion","s")
-                .add(Restrictions.eq("c.id_ciudadano",id))
-                .add(Restrictions.eq("s.id_Situaciones",id));
-             return (List<RegistroEvento>) criteria.list();
+        Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(RegistroEvento.class);
+        Criteria ncrit = criteria.createCriteria("situacion");
+        ncrit.add(Restrictions.eq("id_Situaciones", id));
+        List resultado = criteria.list();
+        return resultado;
      }
     
 }

@@ -50,7 +50,7 @@ public class Controller {
         return new ResponseEntity<List<RegistroEvento>>(evento,HttpStatus.OK);
         
     }
-    @RequestMapping(value="/ciudadanos/login",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value="/ciudadanos/login/",method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Ciudadano> login(@RequestBody Ciudadano ciudadano){
         Ciudadano inicio = ciudadanoServicio.login(ciudadano);
         return new ResponseEntity<Ciudadano>(inicio,HttpStatus.OK);

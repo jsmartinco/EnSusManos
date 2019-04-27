@@ -38,12 +38,15 @@ public class CiudadanoRepositorio {
     
     public Ciudadano login(Ciudadano ciudadano){
         Criteria criteria = getSessionfactory().getCurrentSession().createCriteria(Ciudadano.class);
-        criteria.add(Restrictions.eq("Usuario", ciudadano.getUsuario()));
+        criteria.add(Restrictions.eq("usuario", ciudadano.getUsuario()));
         criteria.add(Restrictions.eq("pass", ciudadano.getpass()));
         
         Ciudadano ciud = (Ciudadano) criteria.uniqueResult();
         return ciud;
     }
+    
+    
+    
     
    
 

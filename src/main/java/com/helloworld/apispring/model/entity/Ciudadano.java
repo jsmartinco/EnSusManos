@@ -26,10 +26,10 @@ public class Ciudadano {
     @Column
     private String Nombre;
 
-    @Column
-    private String Usuario;
+    @Column(name="Usuario")
+    private String usuario;
 
-    @Column
+    @Column(name="pass")
     private String pass;
     
     
@@ -58,12 +58,12 @@ public class Ciudadano {
 
    
     public String getUsuario() {
-        return Usuario;
+        return usuario;
     }
 
    
     public void setUsuario(String Usuario) {
-        this.Usuario = Usuario;
+        this.usuario = Usuario;
     }
 
     public String getpass() {
